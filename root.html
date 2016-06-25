@@ -1,0 +1,318 @@
+<html>
+	<head>
+	<title>Drag'n'Share</title>
+		<!-- CSS includes -->
+		<link rel="stylesheet" type="text/css" 
+			href="src/lib/yui/build/reset/reset.css" />
+		<link rel="stylesheet" type="text/css" 
+			href="src/lib/yui/build/fonts/fonts-min.css" />
+		<link rel="stylesheet" type="text/css" 
+			href="src/lib/yui/build/container/assets/container.css" />
+		<link rel="stylesheet" type="text/css" 
+			href="src/lib/yui/build/menu/assets/skins/sam/menu.css" />
+		<link rel="stylesheet" type="text/css" 
+			href="src/lib/yui/build/autocomplete/assets/skins/sam/autocomplete.css" />
+		<link rel="stylesheet" type="text/css" 
+			href="src/lib/yui/build/datatable/assets/skins/sam/datatable.css" />
+		<link rel="stylesheet" type="text/css" 
+			href="src/lib/yui/build/tabview/assets/skins/sam/tabview.css" />
+		<link rel="stylesheet" type="text/css" 
+			href="src/css/DragNShare_root.css" />
+
+		<!-- JS includes -->
+		<script type="text/javascript" 
+			src="src/js/core.js"></script>
+		<script type="text/javascript"
+			src="src/lib/yui/build/yahoo/yahoo-min.js"></script>
+		<script type="text/javascript" 
+			src="src/js/Settings.js"></script>
+		<script type="text/javascript" 
+			src="src/js/DocsUploaderSystem.js"></script>
+		<script type="text/javascript" 
+			src="src/js/init.js"></script>
+		<script type="text/javascript" 
+			src="src/lib/yui/build/event/event-min.js"></script>
+		<script type="text/javascript" 
+			src="src/lib/yui/build/connection/connection-min.js"></script>
+		<script type="text/javascript" 
+			src="src/lib/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+		<script type="text/javascript" 
+			src="src/lib/yui/build/animation/animation-min.js"></script>
+		<script type="text/javascript" 
+			src="src/lib/yui/build/autocomplete/autocomplete-min.js"></script>
+		<script type="text/javascript" 
+			src="src/lib/yui/build/datasource/datasource-beta-min.js"></script>
+		<script type="text/javascript" 
+			src="src/lib/yui/build/element/element-beta-min.js"></script>
+		<script type="text/javascript" 
+			src="src/lib/yui/build/dragdrop/dragdrop-min.js"></script>
+		<script type="text/javascript" 
+			src="src/lib/yui/build/datatable/datatable-beta-min.js"></script>
+		<script type="text/javascript" 
+			src="src/lib/yui/build/tabview/tabview-min.js"></script>
+		<script type="text/javascript" 
+			src="src/lib/yui/build/utilities/utilities.js"></script>
+		<script type="text/javascript" 
+			src="src/lib/yui/build/container/container.js"></script>
+		<script type="text/javascript" 
+			src="src/lib/yui/build/menu/menu.js"></script>
+		<script type="text/javascript" 
+			src="src/js/HTTPRequestSystem.js"></script>
+		<script type="text/javascript" 
+			src="src/js/ClientLoginSystem.js"></script>
+		<script type="text/javascript" 
+			src="src/js/DragSystem.js"></script>
+		<script type="text/javascript" 
+			src="src/js/DocsFeedParser.js"></script>
+		<script type="text/javascript" 
+			src="src/js/SettingSystem.js"></script>
+		<script type="text/javascript" 
+			src="src/js/AIRAliases.js"></script>
+		<script type="text/javascript" 
+			src="src/js/DNSContextMenu.js"></script>
+		<script type="text/javascript" 
+			src="src/js/Settings.js"></script>
+		<script type="text/javascript" 
+			src="src/js/DNSTray.js"></script>
+
+		<!-- Source Browser -->
+		<script type="text/javascript"
+			src="src/SourceViewer/AIRSourceViewer.js"></script>
+	</head>
+	<body class=" yui-skin-sam" 
+		ondragenter="doDragEnter(event)"
+		ondragover ="doDragOver(event)"
+	    ondragleave="doDragLeave(event)"
+	    ondrop="doDrop(event)"
+	    ondragend="doDragEnd(event)" >
+		<!-- Tabset controll -->
+		<div id="tabUI" class="yui-navset">
+		    <ul class="yui-nav">
+		        <li class="selected"><a href="#tab1"><em>Account</em></a></li>
+		        <li><a href="#tab2"><em>Documents</em></a></li>
+		        <li><a href="#tab3"><em>Settings</em></a></li>
+		        <li><a href="#tab4"><em>About</em></a></li>
+		    </ul>
+		    <div id="mainDisplay" class="yui-content">
+		    	<!-- LOGIN PAGE START -->
+		    	<div id="loginPage">
+				<!-- LOADING SCREEN -->
+		    		<div id="loading_screen_module">
+		    			<h1>Loading...</h1>
+		    		</div>
+		    		<!-- NEED TO LOGIN START -->
+		    		<div id="need_to_login_module" style="display:none">
+			    		<h1>Log In</h1>
+			    		<div id="messageArea"></div>
+			        	<div id="controls">
+			        		<!-- CAPTCHA SUBSET START -->
+			    			<div id="captcha_standalone_subset">
+				        		<p class="textDescription">
+					        		Also, the <em>Google Docs</em>
+					        		service has decided to challenge you a 
+					        		<strong>CAPTCHA</strong> response. Please 
+					        		fill the text shown by the image in the 
+					        		appropriate text box on the left.
+				        		</p>
+				        		<p class="captchaHolder">
+				        			<img id="captchaImage" />
+				        		</p>
+				        		<p class="fineprint">
+				        			To minimize the number of 
+				        			<strong>CAPTCHA</strong> challenges from Google,
+				        			make sure you always enter your credentials 
+				        			correctly, or use the <em>automatic login 
+				        			feature</em>.
+				        		</p>
+			    			</div>
+			        		<!-- CAPTCHA SUBSET END -->
+				        	<label for="usernameField">
+				        		Google account username:
+			        		</label>
+				        	<input id="usernameField" type="text" value="" />
+				        	<label for="passwordField">
+				        		Google account password:
+			        		</label>
+				        	<input id="passwordField" type="password" value="" />
+				        	<label for="captchaField">
+				        		<strong>CAPTCHA</strong> text:
+			        		</label>
+				        	<input id="captchaField" type="text" />
+				        	<input id="rememberMeCheck" type="checkbox" />
+				        	<label for="rememberMeCheck">
+				        		Log me in automatically whenever I use this 
+				        		application.
+			        		</label>
+				        	<input id="authenticateButton" type="button"
+				        		value="Authenticate"/>
+			        	</div>
+			        	<hr />
+			        	<p class="fineprint">
+			        		<span class="dropcapNote">Note: </span>If you choose to 
+			        		be logged in automatically, your Google account username
+			        		and password will be stored in an encrypted file on your 
+			        		harddisc.
+		        		</p>
+		    		</div>
+		    		<!-- NEED TO LOGIN END -->
+		    		<!-- ALREADY LOGED IN START -->
+		    		<div id="already_logged_in_module" style="display:none">
+		        		<h1>Logged In</h1>
+		        		<p class="textDescription">
+		        			You re now logged in to <em>Google Docs</em> as
+		        			<span id="userNameText">username</span>.
+		        		</p>
+		        		<p class="textDescription">
+		        			Click the <strong>Log Out</strong> button if you 
+		        			want to be logged out (i.e., for logging into your 
+		        			other Google account):
+		        		</p>
+		        		<input type="button" id="logOutButton" 
+		        			value="Log Out" />
+		        		<hr />
+		        		<p class="finePrint">
+		        			<em class="dropcapNote">Note: </em> Choosing
+		        			to logout will also delete the credentials stored
+		        			locally, should you have used the <em>remember
+		        			me</em> option.
+		        		</p>
+		        		<p class="finePrint">
+		        			You will need to login again <em>and</em> recheck 
+		        			the <strong>remember me</strong> checkbox.
+		        		</p>
+		    		</div>
+		    		<!-- ALREADY LOGED IN STOP -->
+		    	</div>
+		    	<!-- LOGIN PAGE END -->
+		        <!-- Documents page -->
+		        <div id="documentsPage">
+		        	<div id="documents_module" style="display:none">
+						<div id="gridUI"><p>&nbsp;</p></div>
+						<p>You may drag&amp;drop a file on the application window to
+						share it with <em>Google Docs</em>. Default upload 
+						settings will be used.</p>
+						<hr />
+						<div id="loaderUI">
+							<p>Or select the file to upload:</p>
+							<input type="text" id="fileUploadPath" />
+							<input type="button" id="browseButton" 
+								value="Browse..." />
+							<input type="button" id="uploadButton" 
+								value="Upload" />
+							<input type="button" id="cancelButton" 
+								value="Cancel" />								
+						</div>
+		        	</div>
+		        </div>
+		        <!-- Settings page -->
+		        <div id="settingsPage">
+		        	<div id="settings_module" style="display:none">
+		        		<label for="pollTime">
+				        	 	Notification polling period (in minutes):
+			        	</label>
+				        <input id="pollTime" type="text" value="" />
+				        <input id="minimizeTray" type="checkbox" />
+				        	<label for="minimizeTray">
+				        		Minimize to tray
+			        		</label>
+			        	<input id="saveButton" type="button" value="Save"/>
+		        	</div>
+		        </div>
+		        
+		        <div id="aboutPage">
+		        	<div id="about_module" style="display:none">
+		        		<div class="head">Drag'N'Share</div>
+						<div>&nbsp;</div>
+						<div>Based on:</div>
+						<div class="list">
+							<div>Google Documents API<br />
+								<script type="text/javascript">
+									var gdAPI = 'http://code.google.com/'+
+										'apis/documents';
+									var gDocs = 'http://docs.google.com/';
+									var yui = 'http://developer.'+
+										'yahoo.com/yui';
+									function openUrl(url) {
+										gotoURL(url);
+									}
+								</script>
+								<a href="#" onclick="openUrl(gdAPI)">
+									http://code.google.com/apis/documents
+								</a>
+							</div>
+							<div>YAHOO UI<br />
+								<a href="#" onclick="openUrl(yui)">
+									http://developer.yahoo.com/yui
+								</a>
+							</div>
+						</div>
+						<div>Using:</div>
+						<div class="list">
+							<div>Google Documents services<br />
+								<a href="#" onclick="openUrl(gDocs)">
+									http://docs.google.com/
+								</a>
+							</div>
+						</div>
+						<p>&nbsp;</p>
+						<script type="text/javascript">
+							var config = {exclude:[
+                                '/src/SourceViewer',
+                                '/META-INF/signatures.xml',
+                                '/META-INF/AIR/hash',
+                                '/META-INF/AIR/publisherid',
+                                '/Drag\'n\'Share.exe'
+                            ]};
+                            air.SourceViewer.getDefault().setup(config);
+						</script>
+						<a href="#" 
+							onclick="air.SourceViewer.getDefault().viewSource()" 
+							style="font-weight:bold">View sources</a>
+						<p>&nbsp;</p>
+						<hr />
+						<div>YAHOO UI License</div>
+						<div id="license">
+							<pre>
+
+Software License Agreement (BSD License)
+Copyright (c) 2006, Yahoo! Inc.
+All rights reserved.
+
+Redistribution and use of this software in source and binary forms, with or
+without modification, are permitted provided that the following conditions are
+met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice, this
+  list of conditions and the following disclaimer in the documentation and/or
+  other materials provided with the distribution.
+
+* Neither the name of Yahoo! Inc. nor the names of its contributors may be used
+  to endorse or promote products derived from this software without specific
+  prior written permission of Yahoo! Inc.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+							</pre>
+						</div>
+						<p>&nbsp;</p>
+    					<div>Copyright 2007-2008. Adobe Systems Incorporated.
+    						<br/>All rights reserved.
+    					</div>
+		        	</div>
+		        </div>
+		    </div>
+		</div>
+		<script type="text/javascript">dnshare.DOMReady()</script>
+	</body>
+</html>

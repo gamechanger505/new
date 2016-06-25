@@ -1,0 +1,351 @@
+/*
+ * Copyright (C) 2007 Adobe Systems Incorporated. All rights reserved.
+ */
+html, body.appSandbox {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+body {
+	background-color: #cdcdcd;
+	-khtml-user-select: none;
+	padding: 10px 15px;
+}
+
+#loading_screen_module {
+	background-color: #cdcdcd;
+	position: absolute;
+	top:0;
+	left:0;
+	z-index: 9999;
+	width: 100%;
+	height: 100%;
+}
+
+#loading_screen_module h1 {
+	font-style: italic;
+	position:absolute;
+	margin: 0;
+	top: 45px;
+	left: 18px;
+}
+
+em {
+	font-style: italic;
+	font-family: Georgia,Times_,serif_;
+}
+
+input[type="button"] {
+	min-width: 8em;
+}
+
+strong {
+	font-weight: bold;
+	font-family: Georgia,Times_,serif_;
+}
+
+input[type="text"] {
+	width: 15em;
+}
+
+input[type="button"] {
+	padding: 0.2em;
+}
+
+.yui-content > div {
+	margin: 10px;
+}
+
+hr {
+	margin-top: 2em;
+	margin-bottom: 0.5em;
+}
+
+#filterUI p, #loaderUI p {
+	float: left;
+	margin-right: 1em;
+}
+
+#gridUI {
+	margin-bottom: 10px;
+}
+
+/**************/
+/* LOGIN PAGE */
+/**************/
+#loginPage label,
+#loginPage input {
+	display: block;
+}
+
+#loginPage label {
+	float: left;
+	clear: left;
+}
+
+#loginPage #rememberMeCheck {
+	float: left;
+}
+
+#loginPage label[for="rememberMeCheck"] {
+	clear: none;
+}
+
+#loginPage #authenticateButton {
+	clear: left;
+}
+
+#usernameField,
+#passwordField,
+#captchaField,
+label[for="usernameField"],
+label[for="passwordField"],
+label[for="captchaField"] {
+	margin-top: 0.7em;
+}
+
+#usernameField,
+#passwordField,
+#captchaField {
+	width: 15em;
+}
+
+label[for="usernameField"],
+label[for="passwordField"],
+label[for="captchaField"] {
+	min-width: 12em;
+	padding-right: 0.5em;
+	text-align: right;
+}
+
+#rememberMeCheck,
+label[for="rememberMeCheck"] {
+	margin: 0.7em 0;
+}
+
+label[for="rememberMeCheck"] {
+	margin-left: 0.5em;
+}
+
+#authenticateButton {
+	margin-top: 3em;
+	padding: 0.2em;
+	width: 8em;
+	height: 2em;
+	position: relative;
+	top: 0;
+	left: 50%;
+	margin-left: -4em;
+}
+
+#loginPage #controls {
+	border: 1px solid transparent;
+	width: 27.5em;
+	height: 9em;
+	margin: auto;
+	margin-top: 1em;
+}
+
+p.fineprint {
+	font-size: 85%;
+	font-family: Verdana,Helvetica,sans_;
+	margin-bottom: 0.5em;
+}
+
+.dropcapNote {
+	font-weight: bold;
+	font-size: 110%;
+	display: block;
+	float: left;
+	height: 8em;
+	margin-right: 0.5em;
+}
+
+/* The CAPTCHA controls won't show until needed */
+#loginPage #captcha_standalone_subset,
+#loginPage #controls #captchaField,
+#loginPage #controls label[for="captchaField"] {
+	display: none;
+}
+
+
+
+/* The CAPTCHA module will require aditional space when displayed */
+#loginPage #controls.captcha {
+	width: 57em;
+	height: 14.5em;
+}
+
+#loginPage #controls.captcha #captchaField,
+#loginPage #controls.captcha label[for="captchaField"],
+#loginPage #controls.captcha #captcha_standalone_subset {
+	display: block;
+}
+
+#loginPage #controls.captcha #captcha_standalone_subset {
+	float: right;
+	width: 28em;
+}
+
+#loginPage #controls.captcha  #authenticateButton {
+	left: 25%;
+}
+
+p.captchaHolder {
+	text-align: center;
+	padding: 0.7em 0;
+}
+
+p.captchaHolder img {
+	border: 1px solid #cdcdcd;
+}
+
+/*
+ * APP GLOBAL SETTINGS
+ */
+.yui-content {
+	min-height: 90%;
+}
+
+/******************/
+/* LOGGED IN PAGE */
+/******************/
+#need_to_login_module h1,
+#already_logged_in_module h1,
+#loading_screen_module h1 {
+	font-size: 2em;
+	margin-bottom: 1em;
+}
+
+#already_logged_in_module p.textDescription {
+	margin: 0.8em 0;
+}
+
+#already_logged_in_module p.textDescription + p {
+	float: left;
+}
+
+#already_logged_in_module hr {
+	clear: both;
+	margin-top: 5em;
+	margin-bottom: 0.5em;
+}
+
+#already_logged_in_module #userNameText {
+	font-weight: bold;
+	border-bottom: 1px gray dotted;
+}
+
+#already_logged_in_module #logOutButton {
+	padding: 0.2em;
+	float: right;
+	position: relative;
+	top: 0.5em;
+}
+
+/**
+* SETTINGS PAGE
+*/
+
+#settingsPage label,
+#settingsPage input {
+	display: block;
+}
+
+#settingsPage label {
+	float: left;
+	clear: left;
+}
+
+#settingsPage #minimizeTray {
+	float: left;
+}
+
+#settingsPage label[for="minimizeTray"] {
+	clear: none;
+}
+
+#pollTime,
+label[for="pollTime"],
+	margin-top: 0.7em;
+}
+
+#pollTime{
+	width: 15em;
+}
+
+label[for="pollTime"]{
+	min-width: 12em;
+	padding-right: 0.5em;
+	text-align: right;
+}
+
+#minimizeTray,
+label[for="minimizeTray"] {
+	margin: 0.7em 0;
+}
+
+label[for="minimizeTray"] {
+	margin-left: 0.5em;
+}
+
+#saveButton {
+	margin-top: 3em;
+	padding: 0.2em;
+	width: 8em;
+	height: 2em;
+	position: relative;
+	top: 0;
+	left: 50%;
+	margin-left: -4em;
+}
+
+/* About page */
+#aboutPage #about_module {
+	max-height: 85%;
+	overflow: auto;
+}
+
+#aboutPage div{
+		text-align:center;
+}
+
+#aboutPage div.list > div{
+		border-bottom:1px solid #cccccc;
+		padding:10px;
+		font-size:12px;
+}
+
+#aboutPage .head {
+	font-weight:bold;
+	border-bottom:2px solid #330033;
+}
+
+#license pre{
+	text-align: left !important;
+}
+
+#license ul li {
+	list-style-type: disc;
+}
+/******************/
+/* ERROR MESSAGES */
+/******************/
+.error {
+	font-weight: bold;
+	color: #ff0000;
+	margin-bottom: 1em;
+}
+/*****************************/
+/* Customize scrollable grid */
+/*****************************/
+#gridUI { 
+    width: 99%;
+    height: 70%;
+    overflow: auto;
+}
+
+#gridUI table {
+	width: 100%;
+}

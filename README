@@ -1,0 +1,27 @@
+Drag'n'Share
+============
+This is a sample application that consumes the 'Google Documents' public 
+service.
+
+Usage
+=====
+- Login into your GoogleDocs account using your GMail credentials;
+- Switch to the 'Documents' tab to the documents currently uploaded;
+- Double click a file to view it in your preferred browser; alternatively, you 
+  can right-click and select 'view in browser';
+- Hit 'Browse' to pick a file on your harddisk or drag it onto the application, 
+  then click 'Upload' to send it into your account.
+- Click 'minimize' to have the application minimize to the system tray. It will 
+  show you notifications every time you or somebody else modifies/adds/deletes a
+  shared document.
+
+Libraries used by Drag'n'Share
+===============================
+Yahoo! User Interface Library (YUI) 
+- BSD license (http://developer.yahoo.com/yui/license.txt)
+
+Services used by Drag'n'Share
+==============================
+
+Google Docs
+- URL: http://www.google.com/google-d-s/intl/en/tour1.html
